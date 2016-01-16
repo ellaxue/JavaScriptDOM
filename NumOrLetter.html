@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>This page will detect keypress</p>
+<h1 id=result>Press a key</h1>
+
+<script>
+document.onkeypress = function (e) {
+    e = e || window.event;
+    if(((e.keyCode>=65) && (e.keyCode<=90)) || ((e.keyCode>=97) && (e.keyCode<=122)))
+    {
+        document.getElementById("result").textContent="Letter was pressed";
+    }
+    else if((e.keyCode>=48) && (e.keyCode<=57))
+    {
+        document.getElementById("result").textContent="Number was pressed";
+    }
+    else
+    {
+        document.getElementById("result").textContent="Something else";
+    }
+
+};
+</script>
+
+</body>
+</html>
+
