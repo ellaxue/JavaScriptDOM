@@ -3,17 +3,35 @@
 <body>
 
 <p>Enter a date in mm/dd/yyyy format and click OK:</p>
-
 <input id="date">
-<button onclick="validDate()">OK</button>
+
+<p>Enter user name:</p>
+<input id="user">
+<p>Enter password:</p>
+<input id="passwd">
+<button onclick="validForm()">OK</button>
 
 <script>
-function validDate() {
+function validForm() {
     dateString = document.getElementById("date").value
+    userString = document.getElementById("user").value
+    passwdString = document.getElementById("passwd").value
+    if (dateString == null || dateString == "") {
+        alert("Date must be filled out");
+        return false;
+    }
+    if (userString == null || userString == "") {
+        alert("User must be filled out");
+        return false;
+    }
+    if (passwdString != "12345") {
+        alert("Wrong password!");
+        return false;
+    }
     // First check for the pattern
     if(!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(dateString))
     {
-        alert("Wrong format");
+        alert("Wrong date format");
         return false;
     }
 
@@ -26,7 +44,7 @@ function validDate() {
     // Check the ranges of month and year
     if(year < 1000 || year > 3000 || month == 0 || month > 12)
     {
-        alert("Wrong format");
+        alert("Wrong date format");
         return false;
     }
 
@@ -39,17 +57,15 @@ function validDate() {
     // Check the range of the day
     if(day > 0 && day <= monthLength[month - 1])
     {
-        alert("Good format");
+        alert("Good Form");
         return false;
     }
     else
     {
-        alert("Wrong format");
+        alert("Wrong date format");
         return false;
     }
 }
-
-
 </script>
 
 </body>
